@@ -1,5 +1,5 @@
 
-import Card from './Card'
+import Card from '/src/components/card/Card.jsx'
 
 export default function Cards(props) {
    const { characters } = props
