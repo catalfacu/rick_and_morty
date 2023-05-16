@@ -1,10 +1,10 @@
 
-import Card from '/src/components/card/Card.jsx'
-
+import Card from '/src/components/card/Card.jsx' 
+import styles from './Cards.module.css'
 export default function Cards(props) {
    const { characters } = props
    return (
-      <div>
+      <div className={styles.cardsStyles}>
         {characters.map(character => {
          return <Card
          key= {character.id}

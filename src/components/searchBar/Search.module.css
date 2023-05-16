@@ -1,0 +1,19 @@
+.contSearch{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 20px 15px 0px 900px;
+    border: 3px solid black;
+    border-radius: 5px 5px 5px 5px;
+    background-color: grey;
+    opacity: 0.5;
+}
+
+.input{
+    margin: 10px;
+    
+    
+}
+.buttonAdd{
+    margin-right: 10%;
+}
