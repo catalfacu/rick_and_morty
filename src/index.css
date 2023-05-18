@@ -1,8 +1,6 @@
 body {
   background-image: url(https://www.xtrafondos.com/wallpapers/resized/todos-los-personajes-de-rick-y-morty-5642.jpg?s=large);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 110%;
+  background-size: cover;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

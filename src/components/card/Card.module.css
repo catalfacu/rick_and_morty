@@ -2,17 +2,33 @@
     border: 3px solid black;
     margin-top : 5%;
     border-radius: 10px; 
+    background-color: rgba(14, 230, 25, 0.801);
 }
 
-.img{
+.cardStyle img{
     height: 230px;
     width:230px;
     margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
-.button{
+.cardStyle button{
     position: relative;
     top:5px;
     border-radius: 20%;
     width: 20%;
+}
+.cardStyle h2{
+    font-size:medium;
+}
+.nameStyle{
+    position:relative;
+    top:10.4cm;
+    border:solid;
+    border-width: 2px 2px 0px 2px;
+    margin: 0px 50px 0px 50px;
+    border-radius: 4px;
+    background-color: rgba(14, 230, 25, 0.801);
+
 }
