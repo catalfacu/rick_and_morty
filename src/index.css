@@ -1,6 +1,8 @@
 body {
-  background-image: url(https://www.xtrafondos.com/wallpapers/resized/todos-los-personajes-de-rick-y-morty-5642.jpg?s=large);
-  background-size: cover;
+  background-image: radial-gradient(#1ae70f 1px, transparent 1px), radial-gradient(#1ae70f 1px, transparent 1px);
+background-size: 82px 82px;
+background-position: 0 0, 41px 41px;
+background-color: #000000;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,3 +17,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+
+
+
+
+
+/* background-image: url(https://www.xtrafondos.com/wallpapers/resized/todos-los-personajes-de-rick-y-morty-5642.jpg?s=large);
+  background-size: cover; */

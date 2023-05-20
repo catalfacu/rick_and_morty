@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from "./Form.module.css"
 import validation from "./Validation";
 
 export default function Form(props) {
@@ -32,7 +33,8 @@ const handleSubmit = event => {
 }
 
 return (
-    <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.formStyle}>
+        <img src="https://wallpapers-clan.com/wp-content/uploads/2021/08/rick-and-morty-portal-wallpaper-scaled.jpg" alt="Login" />
         <label>Email:</label>
         <input type="text"
                name="email"
@@ -47,7 +49,17 @@ return (
                onChange={handleChange}/>
             <p>{errors.password ? errors.password : null}</p>
 
-        <button type="submit">Submit</button>
+        <button type="submit"> <strong>Submit</strong> </button>
     </form>
+    
 )
 }
+
+
+
+//* En este componente Form se ingresan los datos para acceder a la pagina mediante un login de email y password.
+//* Primero se crean dos estados: userData(los datos que el usuario ingresa) y errors(errores al ingresar datos)
+//* Luego se crea la funcion HandleChange, que modifican los estados creados dependiendo si estan bien o mal ingresados ante cualquier cambio
+//* Luego la funcion handleSubmit concede o no el acceso a la pagina al momento de pulsar el boton Submit
+//*
+//* Al final se renderiza el formulario con sus inputs,textos y el boton Submit.

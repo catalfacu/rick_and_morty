@@ -12,8 +12,8 @@ function App() {
    const [characters, setCharacters] = useState([]);
 
    const [access, setAccess] = useState(false);
-   const EMAIL = "ejemplo@gmail.com"
-   const PASSWORD = "123456789"
+   const EMAIL = "cataldof21@gmail.com"
+   const PASSWORD = "1234567"
 
    const navigate = useNavigate();
 

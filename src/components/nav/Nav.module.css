@@ -1,4 +1,7 @@
 .divNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     border: 2px inset rgba(14, 230, 25, 0.801);
     border-radius: 5px;
     background-color: black;
