@@ -9,11 +9,11 @@ export default function Nav(props) {
              
             
             <NavLink to="/home">
-                <button className={styles.home}>Home</button>    
+                <button className={styles.botonNav}>Home</button>    
             </NavLink>
         <SearchBar onSearch={props.onSearch}/>        
             <NavLink to="/about">
-                <button className={styles.about}>About</button>
+                <button className={styles.botonNav}>About</button>
             </NavLink>
             
            

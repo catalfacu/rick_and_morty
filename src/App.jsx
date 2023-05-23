@@ -9,30 +9,36 @@ import Detail from './components/detail/Detail'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 
 function App() {
-   const [characters, setCharacters] = useState([]);
-
+   
    const [access, setAccess] = useState(false);
    const EMAIL = "cataldof21@gmail.com"
    const PASSWORD = "1234567"
-
+   
    const navigate = useNavigate();
-
+   
    function login(userData) {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
          setAccess(true);
          navigate('/home');
       }
    };
-
+   
    useEffect(() => {
       !access && navigate('/');  //*mientras access sea false la pagina se queda en "/"
    }, [access]);
    
-  
+   
+   const [characters, setCharacters] = useState([]);
+   
    const onSearch = id =>  {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
+            const isDuplicate = characters.some((char) => char.id === data.id);
+            if(isDuplicate) {
+               window.alert('¡El personaje ya está en la lista!');
+             } else {
+                setCharacters((oldChars) => [...oldChars, data]);
+             }
          } else {
             window.alert('¡No hay personajes con este ID!');
          }
