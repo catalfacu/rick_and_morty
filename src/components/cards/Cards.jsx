@@ -1,6 +1,8 @@
 import React from 'react'
 import Card from '/src/components/card/Card.jsx' 
 import styles from './Cards.module.css'
+
+
 export default function Cards(props) {
    const { characters } = props
    return (
