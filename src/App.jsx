@@ -10,8 +10,10 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Favorites from './components/favorites/Favorites'
 
 function App() {
-   
+
+//* LOGIN Y LOG OUT
    const [access, setAccess] = useState(false);
+   
    const EMAIL = "cataldof21@gmail.com"
    const PASSWORD = "1234567"
    
@@ -23,28 +25,36 @@ function App() {
          navigate('/home');
       }
    };
+
+   function logOut() {
+      setAccess(false);
+      navigate("/");
+   };
    
    useEffect(() => {
       !access && navigate('/');  //*mientras access sea false la pagina se queda en "/"
    }, [access]);
+
    
-   
+//?AGREGAR CHARACTERS PARA RENDERIZAR EN HOME
    const [characters, setCharacters] = useState([]);
    
    const onSearch = id =>  {
+      //evitar repetidos
+      const characterId = characters.filter(character=>character.id === Number(id));
+      console.log(characterId);
+      if(characterId.length) return alert("El personaje ya esta en la lista");
+
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
          if (data.name) {
-            const isDuplicate = characters.some((char) => char.id === data.id);
-            if(isDuplicate) {
-               window.alert('¡El personaje ya está en la lista!');
-             } else {
                 setCharacters((oldChars) => [...oldChars, data]);
-             }
          } else {
             window.alert('¡No hay personajes con este ID!');
          }
       });
    };
+
+// TODO: ELIMINAR CARD DE HOME
 
    const onClose = id => {
       setCharacters(characters.filter(character => character.id !== Number(id)))
@@ -56,7 +66,7 @@ function App() {
       <div className='App'>
          {
          location.pathname !== "/" &&
-            <Nav onSearch={onSearch}/>
+            <Nav onSearch={onSearch} logOut={logOut}/>
          }
          <Routes>
             <Route path="/" element={<Form login={login}/>}/>
