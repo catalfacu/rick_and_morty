@@ -7,15 +7,24 @@ export default function SearchBar(props) {
    const handleChange = e => {
       const {value} = e.target;
       setId(value);
+      console.log("id: " , id);
    }
+
+   const cleanInput = (event) => {
+      props.onSearch(id);
+      setId(" ");
+   };
+
    return (
       <div className={styles.contSearch}>
           <input 
+          placeholder= 'ID del personaje...'
           type='text'
           name='search' 
-          id='search' 
+          id='search'
+          value={id}
           onChange={handleChange} />
-         <button onClick={() => props.onSearch(id)}>Agregar</button>
+         <button onClick={() => cleanInput()}>Agregar</button>
       </div>
    );
 }

@@ -21,7 +21,9 @@ const handleFilter = (event) => {
 };
 
     return (
-       <div className={styles.favStyles}>
+       <div className={styles.contenedor}>
+
+         <div className={styles.select}>   
          <select name="order" onChange={handleOrder}>
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
@@ -33,7 +35,11 @@ const handleFilter = (event) => {
             <option value="Genderless">Genderless</option>
             <option value="unknown">unknown</option>
          </select>
-
+         
+         </div>
+         
+         
+         <div className={styles.favoriteCard}>   
          {myFavorites.map(character => {
           return <Card
           key= {character.id}
@@ -47,6 +53,10 @@ const handleFilter = (event) => {
           onClose={onClose}
           />
           })}
+          
+         </div>
+         
+         
     </div>
     )
  }

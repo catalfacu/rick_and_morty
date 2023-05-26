@@ -40,7 +40,8 @@ import { connect } from "react-redux";
            <button 
                onClick={() => props.onClose(props.id)}
             >X</button>
-            <Link to={ `/detail/${props.id}` }> <h2 className={styles.nameStyle}>{props.name}</h2>
+            <Link to={ `/detail/${props.id}` }> 
+            <h2 className={styles.nameStyle}>{props.name}</h2>
             </Link>
             <h2>{props.status}</h2>
             <h2>{props.species}</h2>

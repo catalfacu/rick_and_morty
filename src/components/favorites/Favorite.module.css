@@ -1,0 +1,15 @@
+.favoriteCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.select{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    height: 2rem;
+    border-radius: 30px;
+    border: transparent;
+    font-size: 3rem;
+}
