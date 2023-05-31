@@ -6,6 +6,14 @@ import styles from './Detail.module.css'
 export default function Detail(props) {
 const { id } = useParams();
 const [character, setCharacter] = useState({});
+const [imgview, setImgView] = useState(false);
+
+
+useEffect(()=>{
+   setTimeout(()=>{
+      setImgView(true);
+   },1990)
+},[]);
 
 
 useEffect(() => {
@@ -26,9 +34,12 @@ useEffect(() => {
             <h2>{character.name}</h2>
             <h3>Specie:{character.species}</h3>
             <h3>Gender:{character.gender}</h3>
-            <h3>Origin:{character.origin?.name}</h3></div>
+            <h3>Origin:{character.origin?.name}</h3>
+         </div>
             
-            <div className={styles.image}><img src={character.image} alt={character.name} /></div> 
+            <div className={styles.image}>
+              {imgview && <img src={character.image} alt={character.name}/>}
+            </div> 
         </div>
     )
 }

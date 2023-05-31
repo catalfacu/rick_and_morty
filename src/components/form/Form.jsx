@@ -34,19 +34,23 @@ const handleSubmit = event => {
 
 return (
         <form onSubmit={handleSubmit} className={styles.formStyle}>
-        <img src="https://wallpapers-clan.com/wp-content/uploads/2021/08/rick-and-morty-portal-wallpaper-scaled.jpg" alt="Login" />
+        <img src="src\assets\Rick-morty-form.jpg" alt="Login" />
         <label>Email:</label>
-        <input type="text"
-               name="email"
-               value={userData.email}
-               onChange={handleChange}/>
+        <input
+            placeholder="Insert your email..." 
+            type="text"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}/>
             <p>{errors.email ? errors.email : null}</p>
 
         <label>Password:</label>
-        <input type="password"
-               name="password"
-               value={userData.password}
-               onChange={handleChange}/>
+        <input
+            placeholder="Insert your password..." 
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}/>
             <p>{errors.password ? errors.password : null}</p>
 
         <button type="submit"> <strong>Submit</strong> </button>
