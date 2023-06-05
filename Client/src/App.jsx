@@ -14,9 +14,6 @@ function App() {
 //* LOGIN Y LOG OUT
    const [access, setAccess] = useState(false);
    
-   // const EMAIL = "cataldof21@gmail.com"
-   // const PASSWORD = "1234567"
-   
    const navigate = useNavigate();
    
    function login(userData) {
@@ -28,14 +25,8 @@ function App() {
             setAccess(data);
             access && navigate('/home');
       });
-   }
-   // function login(userData) {
-   //    if (userData.password === PASSWORD && userData.email === EMAIL) {
-   //       setAccess(true);
-   //       navigate('/home');
-   //    }
-   // };
-
+   };
+  
    // function logOut() {
    //    setAccess(false);
    //    navigate("/");

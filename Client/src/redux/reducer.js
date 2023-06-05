@@ -14,27 +14,12 @@ export const reducerFavList = (state=initialState, action) => {
             myFavorites: action.payload, 
             allCharacters: action.payload 
         };
-        // case ADD_FAV:
-        //     return {
-        //         ...state,
-        //         myFavorites: [...state.allCharacters,action.payload],
-        //         allCharacters: [...state.allCharacters,action.payload]
-        //     };
 
         case REMOVE_FAV:
       return { ...state, 
             myFavorites: action.payload 
         };
-
-        // case REMOVE_FAV:
-        //     const filteredFavs = state.allCharacters.filter(fav => fav.id !== Number(action.payload))
-        //     return {
-        //         ...state,
-        //         myFavorites: filteredFavs,
-        //         allCharacters: filteredFavs
-
-        //     };
-
+        
         case FILTER:
             if(action.payload === 'All') return {...state, myFavorites: state.allCharacters};
 
