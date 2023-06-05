@@ -1,8 +1,7 @@
-const datos = [ 
+
+module.exports = [ 
     {
-        email: 'facundocataldo@gmail.com', 
-        password: 1234567
+        email: 'cataldof21@gmail.com', 
+        password: "1234567"
     } 
 ];
-
-module.exports = datos;

@@ -9,7 +9,7 @@ const getCharacterById = (req,res) => {
         .then(response => response.data)
         .then( data => {
             const character= {
-                id: data.id,
+                id: data.id,                    // tambien se puede hacer con destructuring
                 status: data.status,
                 name: data.name,
                 species: data.species,
@@ -18,13 +18,13 @@ const getCharacterById = (req,res) => {
                 gender: data.gender
             };
 
-            if(!character) {
-              return res.status(404).send('Not found');
-            } else {
-                res.json(character)
+            if(character.name) {
+                return res.status(200).json(character)
+            } else {                                            // TODO: condicionar con ternarios despues
+                return res.status(404).send('Not found');
             }; 
         })
-        .catch( error => {res.status(500).send(error.message) } )
+        .catch( error => {return res.status(500).send(error.message) } )
 };
 
 

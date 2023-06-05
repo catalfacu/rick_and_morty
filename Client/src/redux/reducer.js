@@ -23,7 +23,7 @@ export const reducerFavList = (state=initialState, action) => {
 
         case REMOVE_FAV:
       return { ...state, 
-            myFavorites: payload 
+            myFavorites: action.payload 
         };
 
         // case REMOVE_FAV:

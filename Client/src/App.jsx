@@ -14,18 +14,19 @@ function App() {
 //* LOGIN Y LOG OUT
    const [access, setAccess] = useState(false);
    
-   const EMAIL = "cataldof21@gmail.com"
-   const PASSWORD = "1234567"
+   // const EMAIL = "cataldof21@gmail.com"
+   // const PASSWORD = "1234567"
    
    const navigate = useNavigate();
    
    function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
+      axios(URL + `?email=${email}&password=${password}`)
+            .then(({ data }) => {
+            const { access } = data;
+            setAccess(data);
+            access && navigate('/home');
       });
    }
    // function login(userData) {
@@ -75,7 +76,7 @@ function App() {
       <div className='App'>
          {
          location.pathname !== "/" &&
-            <Nav onSearch={onSearch} logOut={logOut}/>
+            <Nav onSearch={onSearch} />
          }
          <Routes>
             <Route path="/" element={<Form login={login}/>}/>
