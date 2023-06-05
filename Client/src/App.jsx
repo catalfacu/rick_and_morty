@@ -20,16 +20,25 @@ function App() {
    const navigate = useNavigate();
    
    function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      }
-   };
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+   }
+   // function login(userData) {
+   //    if (userData.password === PASSWORD && userData.email === EMAIL) {
+   //       setAccess(true);
+   //       navigate('/home');
+   //    }
+   // };
 
-   function logOut() {
-      setAccess(false);
-      navigate("/");
-   };
+   // function logOut() {
+   //    setAccess(false);
+   //    navigate("/");
+   // };
    
    useEffect(() => {
       !access && navigate('/');  //*mientras access sea false la pagina se queda en "/"
