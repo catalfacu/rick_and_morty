@@ -3,7 +3,8 @@ import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./types";
 
 const initialState = {
     myFavorites: [],
-    allCharacters: []
+    allCharacters: [],
+    errors: false
 };
 
 export const reducerFavList = (state=initialState, action) => {
@@ -12,13 +13,20 @@ export const reducerFavList = (state=initialState, action) => {
         case ADD_FAV:
       return { ...state, 
             myFavorites: action.payload, 
-            allCharacters: action.payload 
+            allCharacters: action.payload,
+            errors: false 
         };
 
         case REMOVE_FAV:
       return { ...state, 
-            myFavorites: action.payload 
+            myFavorites: action.payload, 
+            errors: false 
         };
+
+        case "ERROR":
+            return {
+                ...state, error: action.payload
+            };
         
         case FILTER:
             if(action.payload === 'All') return {...state, myFavorites: state.allCharacters};

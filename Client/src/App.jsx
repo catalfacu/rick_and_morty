@@ -16,15 +16,16 @@ function App() {
    
    const navigate = useNavigate();
    
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-            .then(({ data }) => {
-            const { access } = data;
-            setAccess(data);
-            access && navigate('/home');
-      });
+   async function login(userData) {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const {access} = (await axios(URL + `?email=${email}&password=${password}`)).data;
+         setAccess(access);
+         access && navigate('/home'); 
+      } catch (error) {
+         console.log(error.message)
+      }
    };
   
    // function logOut() {
@@ -40,20 +41,23 @@ function App() {
 //?AGREGAR CHARACTERS PARA RENDERIZAR EN HOME
    const [characters, setCharacters] = useState([]);
    
-   const onSearch = id =>  {
+   const onSearch = async id => {
+      try {
       //evitar repetidos
       const characterId = characters.filter(character=>character.id === Number(id));
       console.log(characterId);
       if(characterId.length) return alert("El personaje ya esta en la lista");
+      const {data} =  await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+      if (data.name) {
+             setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+         window.alert('¡No hay personajes con este ID!');
+      }
 
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-         if (data.name) {
-                setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
-   };
+   } catch (error) {
+      console.log(error.message)
+   }
+};
 
 // TODO: ELIMINAR CARD DE HOME
 
