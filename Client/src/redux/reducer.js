@@ -1,4 +1,4 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./types";
+import { ADD_FAV, ERROR, FILTER, ORDER, REMOVE_FAV } from "./types";
 
 
 const initialState = {
@@ -23,9 +23,9 @@ export const reducerFavList = (state=initialState, action) => {
             errors: false 
         };
 
-        case "ERROR":
+        case ERROR:
             return {
-                ...state, error: action.payload
+                ...state, errors: action.payload
             };
         
         case FILTER:

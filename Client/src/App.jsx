@@ -41,12 +41,13 @@ function App() {
 //?AGREGAR CHARACTERS PARA RENDERIZAR EN HOME
    const [characters, setCharacters] = useState([]);
    
-   const onSearch = async id => {
+   const onSearch = async (id) => {
       try {
       //evitar repetidos
-      const characterId = characters.filter(character=>character.id === Number(id));
-      console.log(characterId);
+      const characterId = characters.filter(character=>character.id === id );
+      //console.log(characterId);
       if(characterId.length) return alert("El personaje ya esta en la lista");
+
       const {data} =  await axios(`http://localhost:3001/rickandmorty/character/${id}`);
       if (data.name) {
              setCharacters((oldChars) => [...oldChars, data]);
@@ -62,7 +63,7 @@ function App() {
 // TODO: ELIMINAR CARD DE HOME
 
    const onClose = id => {
-      setCharacters(characters.filter(character => character.id !== Number(id)))
+      setCharacters(characters.filter(character => character.id !== id ))
    };
 
    const location = useLocation();

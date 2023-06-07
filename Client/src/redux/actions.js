@@ -1,4 +1,4 @@
-import { ADD_FAV,REMOVE_FAV,FILTER,ORDER } from "./types";
+import { ADD_FAV,REMOVE_FAV,FILTER,ORDER, ERROR } from "./types";
 import axios from 'axios';
 const ENDPOINT = 'http://localhost:3001/rickandmorty/fav';
 
@@ -12,7 +12,7 @@ export const addFav = (character) => {
        });
       } catch (error) {
          return dispatch({
-            type: "ERROR",
+            type: ERROR,
             payload: error.message
          })
       }
@@ -29,7 +29,7 @@ export const addFav = (character) => {
       });
       } catch (error) {
          return dispatch({
-            type: "ERROR",
+            type: ERROR,
             payload: error.message
          });
       }
