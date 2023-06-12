@@ -28,7 +28,7 @@
 }
 
 
-a { 
+.linksStyle a{ 
     bottom: 30px;
     padding: 20px;
     display: inline-block;
@@ -43,12 +43,10 @@ a {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
   }
-  a:hover, a:focus, a:active {
+  .linksStyle a:hover, .linksStyle a:focus, .linksStyle a:active {
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
-    
   }
-
 
 
 
