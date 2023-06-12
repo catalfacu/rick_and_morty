@@ -28,10 +28,16 @@ function App() {
       }
    };
   
-   // function logOut() {
-   //    setAccess(false);
-   //    navigate("/");
-   // };
+   async function logOut() {
+      try {
+         const URL = 'http://localhost:3001/rickandmorty/logOut/';
+         const {notAccess} = ( await axios (URL) ).data;
+         setAccess(notAccess);
+         navigate("/");
+      } catch (error) {
+         console.log(error.message);
+      }
+   };
    
    useEffect(() => {
       !access && navigate('/');  //*mientras access sea false la pagina se queda en "/"
@@ -72,7 +78,7 @@ function App() {
       <div className='App'>
          {
          location.pathname !== "/" &&
-            <Nav onSearch={onSearch} />
+            <Nav onSearch={onSearch} logOut={logOut} />
          }
          <Routes>
             <Route path="/" element={<Form login={login}/>}/>

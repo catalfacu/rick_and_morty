@@ -14,5 +14,10 @@ users.forEach(user => {
 return res.status(200).json({ access })
 };
 
+const logOut = (req,res) => {
+    let notAccess = false;
+    return res.status(200).json({ notAccess });
+};
 
-module.exports= login;
+
+module.exports= {login, logOut};
