@@ -4,7 +4,7 @@ const PORT = 3001;
 //importo instancia de sequeliza
 const {conn} = require('./DB_connection');
 
-conn.sync({force: true})
+conn.sync({force: false})
    .then(()=> {
       server.listen(PORT, () => {
          console.log(('Server raised in port:' + PORT));
